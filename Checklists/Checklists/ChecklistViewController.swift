@@ -10,7 +10,32 @@ import UIKit
 
 class ChecklistViewController: UITableViewController {
     
-    var row0item : ChecklistItem
+    //var items:
+    required init?(coder aDecoder : NSCoder) {
+        row0item = ChecklistItem()
+        row0item.text = "Walk the dog"
+        row0item.checked = false
+        
+        row1item = ChecklistItem()
+        row1item.text = "Walk the dog"
+        row1item.checked = true
+        
+        row2item = ChecklistItem()
+        row2item.text = "Walk the dog"
+        row2item.checked = false
+        
+        row3item = ChecklistItem()
+        row3item.text = "Walk the dog"
+        row3item.checked = false
+        
+        row4item = ChecklistItem()
+        row4item.text = "Walk the dog"
+        row4item.checked = false
+        super.init(coder : aDecoder)
+
+        
+    }
+    var row0item : ChecklistItem
     var row1item : ChecklistItem
     var row2item : ChecklistItem
     var row3item : ChecklistItem
@@ -80,20 +105,20 @@ class ChecklistViewController: UITableViewController {
             var isChecked = false
             
             if indexPath.row == 0 {
-                row0item.checked = !row0checked
-                isChecked = row0checked
+                row0item.checked = !row0item.checked
+                isChecked = row0item.checked
             } else if indexPath.row == 1 {
-                row1item.checked = !row1checked
-                isChecked = row1checked
+                row1item.checked = !row1item.checked
+                isChecked = row1item.checked
             } else if indexPath.row == 2 {
-                row2item.checked = !row2checked
-                isChecked = row2checked
+                row2item.checked = !row2item.checked
+                isChecked = row2item.checked
             } else if indexPath.row == 3 {
-                row3item.checked = !row3checked
-                isChecked = row3checked
+                row3item.checked = !row3item.checked
+                isChecked = row3item.checked
             } else if indexPath.row == 4 {
-                row4item.checked = !row4checked
-                isChecked = row4checked
+                row4item.checked = !row4item.checked
+                isChecked = row4item.checked
             }
             
             if isChecked {
