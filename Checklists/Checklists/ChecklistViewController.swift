@@ -21,10 +21,13 @@ class ChecklistViewController: UITableViewController {
         item.checked = false
         items.append(item) //add content to data model
         
-        
         let indexPath = IndexPath(row: newRowIndex, section:0 )
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic) //insert new row
+        
+        
+        
+        
         
     }
   
