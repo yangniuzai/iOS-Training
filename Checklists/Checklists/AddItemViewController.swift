@@ -8,17 +8,28 @@
 
 import UIKit
 
+protocol AddItemViewControllerDelegate: class {
+    func addItemViewControllerDidCancel (_ controller: AddItemViewController)
+    func addItemViewController (_ controller: AddItemViewController,
+                                didFinischAdding item: ChecklistItem)
+}
+
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
-    @IBAction func cancell() {
-        dismiss(animated: true, completion: nil)
-    }
-    @IBAction func done() {
-        print("Contents of the text filed: \(textField.text!)")
-        dismiss(animated: true, completion: nil)
-    }
-    
+    weak var delegate: AddItemViewControllerDelegate?
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
+    @IBAction func cancell() {
+        delegate?.addItemViewControllerDidCancel(self)
+      //  dismiss(animated: true, completion: nil)
+    }
+    @IBAction func done() {
+        let item = ChecklistItem()
+        item.text = textField.text!
+        item.checked = false
+        delegate?.addItemViewController(self, didFinischAdding: item)
+        
+     //   dismiss(animated: true, completion: nil)
+    }
     
     override func tableView(_ tableView: UITableView,
                             willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -36,11 +47,9 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         let oldText = textField.text! as NSString
         let newText = oldText.replacingCharacters(in: range, with: string)
             as NSString
-        if newText.length > 0 {
-            doneBarButton.isEnabled = true
-        } else {
-            doneBarButton.isEnabled = false
-        }
+        
+            doneBarButton.isEnabled = (newText.length > 0)
+        
         return true
     }
 }

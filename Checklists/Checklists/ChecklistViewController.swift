@@ -8,8 +8,27 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController {
+class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
+    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+        dismiss(animated: true, completion: nil)
+    }
     
+    func addItemViewController(_ controller: AddItemViewController, didFinischAdding item: ChecklistItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare (for segue: UIStoryboardSegue, sender: Any?){
+        //1
+        if segue.identifier == "AddItem"
+        {//2
+            let navigationController = segue.destination as! UINavigationController
+        //3
+            let controller = navigationController.topViewController as! AddItemViewController
+            //4
+            controller.delegate = self
+        }
+        
+    }
     var items: [ChecklistItem]
     
     @IBAction func addItem(){
