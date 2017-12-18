@@ -15,6 +15,7 @@ protocol AddItemViewControllerDelegate: class {
 }
 
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
+    var itemToEdit : ChecklistItem?
     weak var delegate: AddItemViewControllerDelegate?
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
@@ -41,6 +42,13 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         textField.becomeFirstResponder()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let item = itemToEdit {
+            title = "Edit Item"
+            textField.text = item.text
+        }
+    }
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String)-> Bool{
