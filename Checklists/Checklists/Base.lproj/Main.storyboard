@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Checklists-->
+        <!--(Name of the Checklist)-->
         <scene sceneID="4xe-TR-Bff">
             <objects>
                 <tableViewController id="mXD-qu-DfQ" customClass="ChecklistViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,6 +46,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Bwu-PP-NVa" kind="presentation" identifier="EditItem" trigger="accessoryAction" id="brF-Up-Iiu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -53,16 +56,13 @@
                             <outlet property="delegate" destination="mXD-qu-DfQ" id="r0S-xO-JS4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklists" id="RkI-K5-fX2" userLabel="Checklists">
+                    <navigationItem key="navigationItem" title="(Name of the Checklist)" id="RkI-K5-fX2" userLabel="(Name of the Checklist)">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CwL-KC-gIP">
                             <connections>
                                 <segue destination="Bwu-PP-NVa" kind="presentation" identifier="AddItem" id="ScY-cs-2as"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="Bwu-PP-NVa" kind="presentation" identifier="EditItem" id="6ev-9e-62M"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsT-Wd-hcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,7 +71,7 @@
         <!--Add Item-->
         <scene sceneID="Ld9-eS-Jdy">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Cb0-wA-fYR" customClass="AddItemViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Cb0-wA-fYR" customClass="ItemDetailViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Q6a-9K-Pgd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,6 +129,28 @@
             </objects>
             <point key="canvasLocation" x="2021.25" y="146.83098591549296"/>
         </scene>
+        <!--All Lists View Controller-->
+        <scene sceneID="KQ0-oF-rhb">
+            <objects>
+                <tableViewController id="9vf-5J-qjD" customClass="AllListsViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ni1-K8-AYD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="9vf-5J-qjD" id="WmR-vF-owf"/>
+                            <outlet property="delegate" destination="9vf-5J-qjD" id="4EW-Ju-Vpw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Ol2-pq-6NP" userLabel="Checklists"/>
+                    <connections>
+                        <segue destination="mXD-qu-DfQ" kind="show" identifier="ShowChecklist" id="9N0-mh-koB"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Xs-lY-hBU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="373" y="-640"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="kZH-Nf-a5K">
             <objects>
@@ -140,12 +162,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="mXD-qu-DfQ" kind="relationship" relationship="rootViewController" id="07v-a7-TBp"/>
+                        <segue destination="9vf-5J-qjD" kind="relationship" relationship="rootViewController" id="2fR-AD-QEf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQB-8q-Qqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-394" y="147"/>
+            <point key="canvasLocation" x="-422" y="147"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vPj-s1-ajj">
@@ -167,6 +189,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6ev-9e-62M"/>
+        <segue reference="brF-Up-Iiu"/>
     </inferredMetricsTieBreakers>
 </document>

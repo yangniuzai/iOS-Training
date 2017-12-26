@@ -1,5 +1,5 @@
 //
-//  AddItemViewController.swift
+//  itemDetailViewController.swift
 //  Checklists
 //
 //  Created by Qingyu Yang on 2017/12/12.
@@ -8,27 +8,33 @@
 
 import UIKit
 
-protocol AddItemViewControllerDelegate: class {
-    func addItemViewControllerDidCancel (_ controller: AddItemViewController)
-    func addItemViewController (_ controller: AddItemViewController,
+protocol ItemDetailViewControllerDelegate: class {
+    func itemDetailViewControllerDidCancel (_ controller: ItemDetailViewController)
+    func itemDetailViewController (_ controller: ItemDetailViewController,
                                 didFinischAdding item: ChecklistItem)
+    func itemDetailViewController (_ controller: ItemDetailViewController,
+                                didFinischEditing item: ChecklistItem)
 }
 
-class AddItemViewController: UITableViewController, UITextFieldDelegate {
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     var itemToEdit : ChecklistItem?
-    weak var delegate: AddItemViewControllerDelegate?
+    weak var delegate: ItemDetailViewControllerDelegate?
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
     @IBAction func cancell() {
-        delegate?.addItemViewControllerDidCancel(self)
+        delegate?.itemDetailViewControllerDidCancel(self)
       //  dismiss(animated: true, completion: nil)
     }
     @IBAction func done() {
+        if let item = itemToEdit {
+            item.text = textField.text!
+            delegate?.itemDetailViewController(self, didFinischEditing: item)
+        } else {
         let item = ChecklistItem()
         item.text = textField.text!
         item.checked = false
-        delegate?.addItemViewController(self, didFinischAdding: item)
-        
+        delegate?.itemDetailViewController(self, didFinischAdding: item)
+        }
      //   dismiss(animated: true, completion: nil)
     }
     
@@ -47,6 +53,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         if let item = itemToEdit {
             title = "Edit Item"
             textField.text = item.text
+           // doneBarButton.isEnabled = true
         }
     }
     func textField(_ textField: UITextField,
@@ -61,7 +68,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
 }
-//class AddItemViewController: UITableViewController,
+//class itemDetailViewController: UITableViewController,
 
 
 
