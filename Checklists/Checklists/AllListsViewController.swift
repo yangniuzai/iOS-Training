@@ -68,6 +68,8 @@ UINavigationControllerDelegate {
         } else {
         cell.detailTextLabel!.text = "\(checklist.countUncheckedItems())个剩余项"
         }
+        //image view
+        cell.imageView!.image = UIImage(named: checklist.iconName)
         return cell
     }
     
