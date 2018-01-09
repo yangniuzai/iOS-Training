@@ -22,6 +22,8 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     weak var delegate: ListDetailViewControllerDelegate?
     
+    @IBOutlet weak var iconImageView: UIImageView!
+    
     var checklistToEdit: Checklist?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +54,13 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 
-    override func tableView(_ tableView: UITableView, willSelectRowAt IndexPath: IndexPath) -> IndexPath? {
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        
+        if indexPath.section == 1 {
+            return indexPath
+        } else {
         return nil
+        }
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
