@@ -1,0 +1,30 @@
+
+/* Class = "UINavigationItem"; title = "Add Item"; ObjectID = "2IT-6y-Vvn"; */
+"2IT-6y-Vvn.title" = "Add Item";
+
+/* Class = "UILabel"; text = "Icon"; ObjectID = "3NV-Xe-Xx2"; */
+"3NV-Xe-Xx2.text" = "Icon";
+
+/* Class = "UINavigationItem"; title = "Choose Icon"; ObjectID = "7RG-RE-ovq"; */
+"7RG-RE-ovq.title" = "Choose Icon";
+
+/* Class = "UINavigationItem"; title = "Add Checklist"; ObjectID = "A7G-XL-EAD"; */
+"A7G-XL-EAD.title" = "Add Checklist";
+
+/* Class = "UITextField"; placeholder = "Name of the Item"; ObjectID = "DGh-Kp-0fj"; */
+"DGh-Kp-0fj.placeholder" = "Name of the Item";
+
+/* Class = "UILabel"; text = "√"; ObjectID = "M23-8u-NGD"; */
+"M23-8u-NGD.text" = "√";
+
+/* Class = "UINavigationItem"; title = "(Name of the Checklist)"; ObjectID = "RkI-K5-fX2"; */
+"RkI-K5-fX2.title" = "(Name of the Checklist)";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ZNd-R1-JFn"; */
+"ZNd-R1-JFn.text" = "Label";
+
+/* Class = "UITextField"; text = "Name of the List"; ObjectID = "sxr-lL-vPa"; */
+"sxr-lL-vPa.text" = "Name of the List";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "zZB-8Q-iuU"; */
+"zZB-8Q-iuU.text" = "Title";

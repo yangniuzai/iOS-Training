@@ -18,7 +18,6 @@
 		23D860621FCB13CF00409626 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D860611FCB13CF00409626 /* ChecklistViewController.swift */; };
 		23D860651FCB13CF00409626 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D860631FCB13CF00409626 /* Main.storyboard */; };
 		23D860671FCB13CF00409626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23D860661FCB13CF00409626 /* Assets.xcassets */; };
-		23D8606A1FCB13CF00409626 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D860681FCB13CF00409626 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +33,6 @@
 		23D860611FCB13CF00409626 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		23D860641FCB13CF00409626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23D860661FCB13CF00409626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		23D860691FCB13CF00409626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23D8606B1FCB13CF00409626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +70,6 @@
 				23D860611FCB13CF00409626 /* ChecklistViewController.swift */,
 				23D860631FCB13CF00409626 /* Main.storyboard */,
 				23D860661FCB13CF00409626 /* Assets.xcassets */,
-				23D860681FCB13CF00409626 /* LaunchScreen.storyboard */,
 				23D8606B1FCB13CF00409626 /* Info.plist */,
 				23394F4A1FDA02C80049CCBC /* ChecklistItem.swift */,
 				235DB4391FDF509F0000DC10 /* ItemDetailViewController.swift */,
@@ -144,7 +141,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23D8606A1FCB13CF00409626 /* LaunchScreen.storyboard in Resources */,
 				23D860671FCB13CF00409626 /* Assets.xcassets in Resources */,
 				23D860651FCB13CF00409626 /* Main.storyboard in Resources */,
 			);
@@ -179,14 +175,7 @@
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
-		};
-		23D860681FCB13CF00409626 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				23D860691FCB13CF00409626 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 /* End PBXVariantGroup section */
 
