@@ -18,9 +18,12 @@ protocol ItemDetailViewControllerDelegate: class {
 
 class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     var itemToEdit : ChecklistItem?
+    var dueDate = Date()
     weak var delegate: ItemDetailViewControllerDelegate?
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+     @IBOutlet weak var dueDateLabel: UILabel!
     @IBAction func cancell() {
         delegate?.itemDetailViewControllerDidCancel(self)
       //  dismiss(animated: true, completion: nil)
