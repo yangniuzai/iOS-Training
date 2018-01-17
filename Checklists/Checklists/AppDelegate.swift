@@ -7,19 +7,45 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     let dataModel = DataModel()
-
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("received local Notification \(notification)")
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let navigationController = window!.rootViewController as! UINavigationController
         let controller = navigationController.viewControllers[0] as! AllListsViewController
         controller.dataModel = dataModel
+       
+         let center = UNUserNotificationCenter.current()
+      center.requestAuthorization(options: [.alert, .sound]) {
+            granted, error in
+            if granted {
+                print("we have permission")
+            } else {
+                print("permission denied")
+            }
+        }
+        
+        
+        let content = UNMutableNotificationContent()
+      /*  content.title = "Hallo!"
+        content.body = "I am a local notification"
+        content.sound = UNNotificationSound.default()
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: "MyNotification", content: content, trigger: trigger)
+        center.add(request)
+ 
+        */
+        center.delegate = self
+        
         // Override point for customization after application launch.
         return true
     }
