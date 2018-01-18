@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EsC-Ts-Adf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EsC-Ts-Adf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -131,6 +131,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wEz-QN-whN">
                                                     <rect key="frame" x="320" y="6" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="shouldRemindToggled:" destination="Cb0-wA-fYR" eventType="valueChanged" id="7Th-zF-YHS"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -180,11 +183,40 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="4qQ-9S-saT" id="dvM-tB-hWn"/>
+                        <outlet property="datePickerCell" destination="fcj-KC-TxG" id="Sky-X7-PmA"/>
                         <outlet property="doneBarButton" destination="JCi-R8-F8r" id="X9j-fK-hdX"/>
+                        <outlet property="dueDateLabel" destination="Utt-QF-EhG" id="Av9-hZ-Ual"/>
+                        <outlet property="shouldRemindSwitch" destination="wEz-QN-whN" id="Zuw-4F-oGo"/>
                         <outlet property="textField" destination="DGh-Kp-0fj" id="SXS-C0-ttn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPl-qa-gnU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="fcj-KC-TxG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fcj-KC-TxG" id="s8l-XI-1tv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="216.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4qQ-9S-saT">
+                                <rect key="frame" x="0.0" y="27" width="375" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="537970921.27933502">
+                                    <!--2018-01-18 12:22:01 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="Cb0-wA-fYR" eventType="valueChanged" id="mG2-Al-dZd"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4qQ-9S-saT" secondAttribute="bottom" constant="27.5" id="6Nx-O2-lo9"/>
+                            <constraint firstItem="4qQ-9S-saT" firstAttribute="leading" secondItem="s8l-XI-1tv" secondAttribute="leading" id="XAk-Py-tPZ"/>
+                            <constraint firstAttribute="trailing" secondItem="4qQ-9S-saT" secondAttribute="trailing" id="lUy-T7-A9C"/>
+                            <constraint firstItem="4qQ-9S-saT" firstAttribute="top" secondItem="s8l-XI-1tv" secondAttribute="top" constant="27" id="nln-HZ-idM"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                </tableViewCell>
             </objects>
             <point key="canvasLocation" x="2020" y="146.17691154422789"/>
         </scene>
